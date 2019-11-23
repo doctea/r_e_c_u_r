@@ -95,16 +95,18 @@ class Actions(object):
                 if self.data.update_next_slot_number(slot, is_current=True):
                     self.video_driver.reload_current_player()
 
-    def _load_shader_preset(self, index):
-        self.shaders.select_shader_index(index)
+    #def _load_shader_preset(self, index):
+    #    self.shaders.select_shader_index(index)
+    def select_shader_name(self, filename):
+        self.message_handler.set_message('INFO', "selected shader %s" % filename)
+        self.shaders.select_shader_name(filename)
 
     def select_shader_preset_0(self):
-        self._load_shader_preset(0)
+        self.select_shader_name("0-input/zoom_clouds.frag")
     def select_shader_preset_1(self):
-        self._load_shader_preset(1)
+        self.select_shader_name("0-input/hypnotic_rings.frag")
     def select_shader_preset_2(self):
-        self._load_shader_preset(2)
-
+        self.select_shader_name("someNewShaders/fx/emboss.frag")
 
     def load_slot_0_into_next_player(self):
         self._load_this_slot_into_next_player(0)

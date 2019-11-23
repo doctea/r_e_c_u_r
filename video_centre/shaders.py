@@ -85,8 +85,39 @@ class Shaders(object):
         self.selected_status = '■'
 
     def select_shader_index(self, index):
+             self.message_handler.set_message('INFO', "choosing shader index %s" % index)
              self.shaders_menu.selected_list_index = index
              self.enter_on_shaders_selection()
+
+    def select_shader_name(self, filename):
+            #while self.shaders_menu_list[x]['name']!=filename:
+            hier = ""
+            for path in filename.split('/'):
+                # print("looking for %s" % path)
+                for index,shader in enumerate(self.shaders_menu_list):
+                    # print("%s: looped over '%s'" % (index, shader['name']))
+                    is_file, name = self.shaders_menu.extract_file_type_and_name_from_menu_format(
+                                        shader['name'])
+                    # print ("name==path is %s" % (name==path))
+                    if not is_file and name.strip()==path:
+                        # print("found menu %s" %path)
+                        #o, ind = self.shaders_menu._check_folder_state("%s/%s"%(hier,path))
+                        hier += "%s/"%path
+                        if shader['name'][-1:]=="|":
+                            # print("opening menu?? %s"%(hier[:-1]))
+                            # print("name is '%s'" % shader['name'])
+                            self.shaders_menu.update_open_folders(hier)
+                            self.shaders_menu.update_open_folders(path)
+                            self.shaders_menu_list = self.generate_shaders_list()
+                        break
+                    elif is_file and name.strip()==path:
+                        # print("selecting shader with index %s" % index)
+                        self.select_shader_index(index)
+                        #break
+                        return
+
+            print("didn't find a shader for %s " % filename)
+            self.message_handler.set_message('INFO', "no shader for '%s'" % filename)
 
     def enter_on_shaders_selection(self):
         index = self.shaders_menu.selected_list_index

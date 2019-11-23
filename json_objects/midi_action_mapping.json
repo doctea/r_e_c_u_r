@@ -16,13 +16,13 @@
         "NAV_DETOUR": ["set_detour_end_continuous"]
 	},
     "control_change 5": {
-		"DEFAULT": ["select_shader_preset_0"]
+		"DEFAULT": ["set_the_shader_param_0_continuous"]
 	},
     "control_change 6": {
-		"DEFAULT": ["select_shader_preset_1"]
+		"DEFAULT": ["set_the_shader_param_1_continuous"]
 	},
     "control_change 7": {
-		"DEFAULT": ["select_shader_preset_2"]
+		"DEFAULT": ["set_the_shader_param_2_continuous"]
 	},
     "control_change 8": {
 		"DEFAULT": ["set_the_shader_param_3_continuous"]
@@ -168,6 +168,15 @@
 	},
 	"note_on 53": {
 		"DEFAULT": ["load_slot_9_into_next_player","quit_the_program"]
+	},
+	"note_on 60": {
+		"DEFAULT": ["select_shader_preset_0"]
+	},
+	"note_on 61": {
+		"DEFAULT": ["select_shader_preset_1"]
+	},
+	"note_on 62": {
+		"DEFAULT": ["select_shader_preset_2"]
 	}
 }
 
