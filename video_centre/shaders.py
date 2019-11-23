@@ -84,6 +84,10 @@ class Shaders(object):
         self.osc_client.send_message("/shader/stop", True)
         self.selected_status = '■'
 
+    def select_shader_index(self, index):
+             self.shaders_menu.selected_list_index = index
+             self.enter_on_shaders_selection()
+
     def enter_on_shaders_selection(self):
         index = self.shaders_menu.selected_list_index
         is_file, name = self.shaders_menu.extract_file_type_and_name_from_menu_format(

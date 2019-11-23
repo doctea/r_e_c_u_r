@@ -16,13 +16,13 @@
         "NAV_DETOUR": ["set_detour_end_continuous"]
 	},
     "control_change 5": {
-		"DEFAULT": ["set_the_shader_param_0_continuous"]
+		"DEFAULT": ["select_shader_preset_0"]
 	},
     "control_change 6": {
-		"DEFAULT": ["set_the_shader_param_1_continuous"]
+		"DEFAULT": ["select_shader_preset_1"]
 	},
     "control_change 7": {
-		"DEFAULT": ["set_the_shader_param_2_continuous"]
+		"DEFAULT": ["select_shader_preset_2"]
 	},
     "control_change 8": {
 		"DEFAULT": ["set_the_shader_param_3_continuous"]

@@ -94,7 +94,16 @@ class Actions(object):
             else:
                 if self.data.update_next_slot_number(slot, is_current=True):
                     self.video_driver.reload_current_player()
-           
+
+    def _load_shader_preset(self, index):
+        self.shaders.select_shader_index(index)
+
+    def select_shader_preset_0(self):
+        self._load_shader_preset(0)
+    def select_shader_preset_1(self):
+        self._load_shader_preset(1)
+    def select_shader_preset_2(self):
+        self._load_shader_preset(2)
 
 
     def load_slot_0_into_next_player(self):
