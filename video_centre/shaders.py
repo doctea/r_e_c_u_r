@@ -113,6 +113,7 @@ class Shaders(object):
                     elif is_file and name.strip()==path:
                         # print("selecting shader with index %s" % index)
                         self.select_shader_index(index)
+                        self.shaders_menu.top_menu_index = index
                         #break
                         return
 
