@@ -108,7 +108,7 @@ class Actions(object):
     def select_shader_preset_2(self):
         self.select_shader_name("someNewShaders/fx/emboss.frag")
     def select_shader_preset_3(self):
-        self.select_shader_name("someNewShaders/fx/kaleidFixed.frag")
+        self.select_shader_name("someNewShaders/fx/edge.frag")
     def select_shader_preset_4(self):
         self.select_shader_name("someNewShaders/mix/mix_hardMix.frag")
     def select_shader_preset_5(self):
@@ -118,11 +118,11 @@ class Actions(object):
     def select_shader_preset_7(self):
         self.select_shader_name("1-input/zoom.frag")
     def select_shader_preset_8(self):
-        self.select_shader_name("someNewShaders/kaleidFree.frag")
+        self.select_shader_name("someNewShaders/fx/kaleidFree.frag")
     def select_shader_preset_9(self):
-        self.select_shader_name("someNewShaders/kaleidFixed.frag")
+        self.select_shader_name("someNewShaders/fx/kaleidFixed.frag")
     def select_shader_preset_10(self):
-        self.select_shader_name("someNewShaders/noEffect.frag")
+        self.select_shader_name("someNewShaders/fx/noEffect01.frag")
 
     def load_slot_0_into_next_player(self):
         self._load_this_slot_into_next_player(0)
