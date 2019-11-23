@@ -177,6 +177,30 @@
 	},
 	"note_on 62": {
 		"DEFAULT": ["select_shader_preset_2"]
+	},
+        "note_on 63": {
+                "DEFAULT": ["select_shader_preset_3"]
+        },
+        "note_on 64": {
+                "DEFAULT": ["select_shader_preset_4"]
+        },
+        "note_on 65": {
+                "DEFAULT": ["select_shader_preset_5"]
+        },
+        "note_on 66": {
+               	"DEFAULT": ["select_shader_preset_6"]
+	},
+	"note_on 67": {
+                "DEFAULT": ["select_shader_preset_7"]
+        },
+        "note_on 68": {
+                "DEFAULT": ["select_shader_preset_8"]
+        },
+        "note_on 69": {
+                "DEFAULT": ["select_shader_preset_9"]
+        },
+        "note_on 70": {
+                "DEFAULT": ["select_shader_preset_10"]
 	}
 }
 
