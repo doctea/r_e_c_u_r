@@ -573,7 +573,7 @@ class Actions(object):
             self.data.update_setting_value('video', 'OUTPUT', 'composite')
         else:
             self.data.update_setting_value('video', 'OUTPUT', 'hdmi')
-            
+
             if self.data.settings['video']['HDMI_MODE']['value'] == "CEA 4 HDMI":
                 
                 self.data.update_setting_value('video', 'HDMI_MODE', 'CEA 4 HDMI')
