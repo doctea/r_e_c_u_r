@@ -43,6 +43,13 @@ class MidiFeedbackPlugin(Plugin):
         raise NotImplementedError
 
 
+class MidiReceiverPlugin(Plugin):
+    """Base class for plugins that want to receive direct midi messages"""
+    # TODO: this whole class
+    # TODO: def process_message(message_dict, origin_midi_device):
+    # TODO: return True if stop_further_processing else False
+
+
 class SequencePlugin(Plugin):
     """Base class for plugins that run constantly or on demand for eg automation"""
 
@@ -556,3 +563,9 @@ class PluginCollection(object):
         plugin = self.get_plugins(ManipulatePlugin)
         if plugin is not None:
             return plugin[0].get_variable(varname, default)
+
+
+    # TODO: methods for handling MIDI output devices
+    # TODO: listing, opening
+    # TODO: sending messages raw
+    # TODO: buffering/queueing messages

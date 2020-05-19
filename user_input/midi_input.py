@@ -38,6 +38,13 @@ class MidiInput(object):
         midi_devices = [s for s in midi_ports if not ('Midi Through' in s)]
         if port_phrase == 'serial':
             midi_devices = [s for s in midi_devices if port_phrase in s]
+
+        # TODO: use a dict of open_midi_devices instead of self.midi_device
+        # TODO: check if requested port is already open
+        # TODO: if so, we shouldn't need to do anything at all, so return
+        # TODO: if not, try and open it and add it to the open_midi_devices dict
+        # TODO: start poll_midi_input at program start, regardless if there is anything in the list
+
         if midi_devices:
             if self.data.midi_status == 'disconnected':
                 subport_index = self.port_index % len(midi_devices)
@@ -54,6 +61,9 @@ class MidiInput(object):
         elif self.data.midi_status == 'connected':
             self.data.midi_status = 'disconnected'
 
+    # TODO: start this at program start
+    # TODO: loop over self.open_midi_devices, check if disconnected etc, grab messages
+    # TODO: send origin midi device into on_midi_message so we can be picky
     def poll_midi_input(self):
         i = 0
         cc_dict = dict()
@@ -87,6 +97,7 @@ class MidiInput(object):
         else:
             self.data.midi_status = 'disconnected'
 
+    # TODO: accept origin_midi_device argument
     def on_midi_message(self, message_dict):
         if message_dict['type'] == 'note_on' and message_dict['velocity'] == 0:
             ## edge case where on note of zero alternative for off note.
@@ -98,6 +109,9 @@ class MidiInput(object):
         if 'control' in message_dict:
             mapped_message_name = '{} {}'.format(mapped_message_name, message_dict['control'])
             mapped_message_value = message_dict['value']
+
+        # TODO: check for plugins that handle MidiReceiverPlugin and pass full message_dict + origin device to them
+        # TODO: dont pass message to run_action_for_mapped_message if MidiReceiverPlugin method returns False
 
         if mapped_message_name in self.midi_mappings.keys():
             self.run_action_for_mapped_message(mapped_message_name, mapped_message_value)
